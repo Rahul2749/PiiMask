@@ -43,7 +43,9 @@ Fresh NuGet HTTP and package caches were used to restore exclusively from `https
 
 The downloaded README, license, full guide, release notes, and three assemblies matched the submitted archive by file SHA-256. The distributed manifest identifies the exact GitHub commit above. NuGet's README now links to the tagged guide/release notes; those tagged documents also matched their packaged counterparts.
 
-NuGet accepted the matching symbols archive; symbol-server validation/indexing was still pending at the most recent page check. The PDBs are already downloadable as a GitHub release asset, and their SourceLink maps/checksums were verified as described above.
+NuGet accepted the matching symbols archive, and the final live page showed no remaining package or symbol validation/indexing warnings. The PDBs are also downloadable as a GitHub release asset, and their SourceLink maps/checksums were verified as described above.
+
+The publication-record commit also passed Windows/Linux CI: https://github.com/Rahul2749/PiiMask/actions/runs/39642089931
 
 ```shell
 dotnet add package PiiMask --version 0.1.0

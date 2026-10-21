@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>PiiMask</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Rahul</Authors>
+    <Description>Dependency-free PII masking for strings, log text, and System.Text.Json on .NET 10, 9, and 8.</Description>
+    <PackageTags>pii;mask;masking;redact;redaction;logging;credit-card;sensitive-data;system-text-json</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/Rahul2749/PiiMask</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Rahul2749/PiiMask</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>First stable release for .NET 10, 9, and 8. Adds regression coverage and fixes repeated masking of email local parts containing punctuation. Preserves whole-message redaction on regex timeouts. Includes tested NuGet README examples and a complete usage guide. Detection remains heuristic; JSON integration requires reflection.</PackageReleaseNotes>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="/" />
+    <None Include="../../LICENSE" Pack="true" PackagePath="/" />
+    <None Include="../../docs/usage-guide.md" Pack="true" PackagePath="docs/" />
+    <None Include="../../docs/release-notes.md" Pack="true" PackagePath="docs/" />
+  </ItemGroup>
+</Project>

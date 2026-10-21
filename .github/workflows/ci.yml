@@ -1,0 +1,44 @@
+name: CI
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            9.0.x
+            10.0.x
+      - run: dotnet restore PiiMask.slnx
+      - run: dotnet build PiiMask.slnx -c Release --no-restore
+      - run: dotnet test tests/PiiMask.Tests/PiiMask.Tests.csproj -c Release --no-build --logger trx
+      - run: dotnet pack src/PiiMask/PiiMask.csproj -c Release --no-build -o artifacts
+      - name: Verify package contents and symbols
+        shell: pwsh
+        run: ./scripts/Test-ReleasePackage.ps1
+      - name: Test the examples shipped in the documentation
+        shell: pwsh
+        run: |
+          ./scripts/Test-NuGetReadme.ps1
+          ./scripts/Test-UsageGuide.ps1
+      - run: dotnet run --project tests/PiiMask.PackageSmoke -c Release -f net8.0
+      - run: dotnet run --project tests/PiiMask.PackageSmoke -c Release -f net9.0
+      - run: dotnet run --project tests/PiiMask.PackageSmoke -c Release -f net10.0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: packages-${{ matrix.os }}
+          path: |
+            artifacts/*.nupkg
+            artifacts/*.snupkg

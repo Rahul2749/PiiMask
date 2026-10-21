@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/benchmarks/">
+    <Project Path="benchmarks/PiiMask.Benchmarks/PiiMask.Benchmarks.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/PiiMask/PiiMask.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/PiiMask.Tests/PiiMask.Tests.csproj" />
+  </Folder>
+</Solution>

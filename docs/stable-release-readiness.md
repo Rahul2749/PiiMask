@@ -1,6 +1,6 @@
 # PiiMask 0.1.0 — first stable release readiness
 
-Prepared on 21 October 2026. **Ready for NuGet publication; not published yet.**
+Prepared and published on 21 October 2026. See the [publication receipt](stable-release-publication.md) for final GitHub/NuGet links, committed source revision, and verification results.
 
 Version `0.1.0` promotes the existing `0.1.0-preview.1` release line to its first stable version. It supports .NET 10, .NET 9, and .NET 8. The public API signatures are unchanged; the implementation fixes and expanded tests are described below.
 
@@ -30,7 +30,7 @@ The stable package consumers restore from the local `.nupkg` into fresh package 
 
 `Test-ReleasePackage.ps1` verified package ID/version, MIT license expression, NuGet README metadata, release notes, zero runtime dependencies, and bundled documentation. Each packaged assembly/XML file and symbol PDB matches its Release build by SHA-256.
 
-NuGet's public registry listed only `0.1.0-preview.1` when checked during preparation. Stable version `0.1.0` was available for a new publication; it has not been pushed by this preparation task.
+NuGet's public registry listed only `0.1.0-preview.1` during initial preparation. The subsequent authorized publication released `0.1.0`; installation from nuget.org was verified afterward.
 
 ## Release artifacts
 
@@ -45,8 +45,8 @@ Use the exact versioned archives when publishing, rather than a wildcard that mi
 
 ## Scope and remaining limits
 
-- Initial preparation testing was on Windows across all three runtimes. The GitHub repository is now connected; the Windows/Linux workflows run when the source is pushed.
-- SourceLink is configured for `https://github.com/Rahul2749/PiiMask` and the committed build revision. Matching portable symbols and source maps are verified before publication.
+- Initial preparation testing was on Windows across all three runtimes. The release commit subsequently passed CI on both Windows and Linux, plus the tag-triggered release workflow.
+- SourceLink is embedded for `https://github.com/Rahul2749/PiiMask` at the release commit. Matching portable symbols, embedded source maps, and all 21 original-source PDB checksums were verified against GitHub before publication.
 - Detection remains heuristic; this release does not claim to detect all secrets or establish compliance. Existing README limits still apply.
 - JSON integration remains reflection-only. Source-generated contexts, trimming, and NativeAOT are outside its supported scope.
 - Benchmarks compile, but no throughput measurements were run or claimed.

@@ -2,9 +2,9 @@
 
 The source repository is https://github.com/Rahul2749/PiiMask.
 
-The first stable release uses the NuGet web portal. Tag pushes build/test the package and upload GitHub Actions artifacts. The automated NuGet publication job is deliberately opt-in to avoid failed or duplicate pushes before a repository credential is configured.
+Tag pushes build and test the package and upload GitHub Actions artifacts. Automated NuGet publication requires a repository credential and an explicit repository setting.
 
-For future automated releases:
+To configure automated releases:
 
 1. Configure a scoped `NUGET_API_KEY` secret in the GitHub `nuget` environment.
 2. Configure any desired environment protection rules.

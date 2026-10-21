@@ -6,3 +6,23 @@ BenchmarkDotNet.Artifacts/
 .vs/
 .dotnet/
 *.user
+
+# Local agent tooling and instructions
+.codex/
+.agents/
+.claude/
+.cursor/
+.windsurf/
+AGENTS.md
+AGENTS.override.md
+CLAUDE.md
+GEMINI.md
+.cursorrules
+.windsurfrules
+
+# Internal planning and publication records
+docs/plan-review.md
+docs/validation.md
+docs/release-verification.md
+docs/stable-release-readiness.md
+docs/stable-release-publication.md

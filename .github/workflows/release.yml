@@ -47,7 +47,6 @@ jobs:
             artifacts/*.snupkg
   publish:
     needs: package
-    # This first release is published through the signed-in NuGet web portal.
     # Enable this repository variable after configuring nuget/NUGET_API_KEY.
     if: ${{ vars.NUGET_PUBLISH_ENABLED == 'true' }}
     runs-on: ubuntu-latest
